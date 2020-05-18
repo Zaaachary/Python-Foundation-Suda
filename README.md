@@ -20,7 +20,7 @@ Python语言基础; 苏州大学复试; Soochow University Python
 
 
 ## 历年复试真题
-历年的C语言真题的Python实现
+历年复试上机真题的C和Python实现
 
 ## Leetcode
 为什么要刷力扣？ MOOC老师的原话↓
@@ -29,3 +29,7 @@ Python语言基础; 苏州大学复试; Soochow University Python
 
 ## 写在最后
 欢迎大家对这个仓库进行补充！
+
+分享一下我的Python交流群:816306317
+
+![](http://zrawberry.com/media/picture/38dcf43696224e6a8d3002dcb98a3302.png)
