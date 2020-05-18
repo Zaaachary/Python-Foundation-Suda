@@ -25,11 +25,11 @@ Python语言基础; 苏州大学复试; Soochow University Python
 ## Leetcode
 为什么要刷力扣？ MOOC老师的原话↓
 
-![](http://zrawberry.com/media/picture/a049c8a39b39412cb2ecfe7e39f59165.png)
+![MOOC讨论区图](http://zrawberry.com/media/picture/a049c8a39b39412cb2ecfe7e39f59165.png)
 
 ## 写在最后
 欢迎大家对这个仓库进行补充！
 
 分享一下我的Python交流群:816306317
 
-![](http://zrawberry.com/media/picture/38dcf43696224e6a8d3002dcb98a3302.png)
+![Python群二维码](http://zrawberry.com/media/picture/38dcf43696224e6a8d3002dcb98a3302.png)
