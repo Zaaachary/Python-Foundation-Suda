@@ -16,7 +16,7 @@ def get_nums(filename):
     content = f.read()
     f.close()
     # 用正则匹配整数
-    pattern = re.compile(r'\-?\d+')
+    pattern = re.compile(r'-?\d+')
     nums = pattern.findall(content)
     return nums
 
