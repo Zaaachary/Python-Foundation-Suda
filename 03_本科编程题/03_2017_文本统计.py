@@ -1,4 +1,6 @@
-def readWordsFromFile(filename):
+import re
+
+def readWordsFromFile_old(filename):
     """
     1.	编写一个函数，从data.txt文件中读取所有单词，并保存到单词列表wordlst中。
     :param filename:
@@ -13,6 +15,16 @@ def readWordsFromFile(filename):
     return file_str.split()
 
 
+def readWordsFromFile(filename):
+    """
+    re写法
+    """
+    f = open(filename, 'r')
+    content = f.read()
+    f.close()
+    return re.findall(r"[a-zA-Z]+", content)
+
+
 def findMultiAlphaWords(wordlst, num):
     """
     找出wordlst中存在某个字母至少出现num次的单词，
@@ -20,9 +32,12 @@ def findMultiAlphaWords(wordlst, num):
     """
     wordResultLst = []
     wordlst = list(map(lambda x: x.lower(), wordlst))
+    ch_dict = {}
     for word in wordlst:
+        ch_dict.clear()
         for ch in word:
-            if word.count(ch) == num:
+            ch_dict[ch] = ch_dict.get(ch, 0) + 1
+            if ch_dict[ch] >= num:
                 wordResultLst.append(word)
                 break
     return wordResultLst
@@ -123,11 +138,12 @@ def printDicToFile(filename, resultDic):
 if __name__ == "__main__":
     # ----从data.txt文件中读取所有单词-------
     # wordlst = readWordsFromFile("d:\\data.txt")
-    wordlst = readWordsFromFile(r"D:\CODE\PythonFoundation\Training\Suda\03_data.txt")
+    wordlst = readWordsFromFile(r".\Files\03_data.txt")
     print("文件中单词个数:", len(wordlst))  # 输出单词个数
 
     # ----找出单词中，存在某个字母重复num次的单词-----
     wordResultLst = findMultiAlphaWords(wordlst, 2)
+    print(wordResultLst)
     print("至少含有重复2次的字母的单词：", len(wordResultLst))
 
     # ----删除wordResultLst中重复单词的多余份数，只保留一份-----
@@ -146,4 +162,4 @@ if __name__ == "__main__":
     # ----统计数字出现的次数----------
     resultDic = staticDigitalTimes(numlst)
     print("===出现次数最多的数字===")
-    printDicToFile(r"D:\CODE\PythonFoundation\Training\Suda\03_result.txt", resultDic)
+    printDicToFile(r".\Files\03_result1.txt", resultDic)
