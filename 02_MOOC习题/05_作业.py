@@ -25,7 +25,8 @@ class Solution:
             elif order[1] > 0:
                 result.append(stu)
             elif order[1] < 0:
-                result.insert(stu, 0)
+                # 负索引 直接插入在头部
+                result.insert(0, stu)
         return result
 
 if __name__ == "__main__":
