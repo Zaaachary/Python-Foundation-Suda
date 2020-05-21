@@ -15,9 +15,6 @@
 例如，在第一个单词后添加"a"，在第二个单词后添加"aa"，以此类推。
 返回将 S 转换为山羊拉丁文后的句子。
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/goat-latin
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
 
 class Solution:
