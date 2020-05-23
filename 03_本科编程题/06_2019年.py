@@ -80,37 +80,131 @@ def func3(num_list):
 
 def func4(A):
     """
-    写错了 还没写完龟龟
+    奇奇怪怪的规律
     """
     m = len(A)
     B = [[] for _ in range(2 * m-1)]
 
     def nextelemt():
-        # 产生L形序列 1 4 7 8 9  2 5 6  3
-        col, flag = 0, True
-        i, j = 0, 0
-        while True:
-            yield(A[i][j])
-            i += 1
-            if i == m -col: # 竖着
+        for i in range(2*m-1):
+            j = 0
+            while 0 <= i < m or 0 <= j < m:                
+                if 0 <= i < m and 0 <= j < m:
+                    yield A[i][j]
                 i -= 1
                 j += 1
-                if j >= m:
-                    col += 1
-                    j = 0
-
-
-    row = 2 * m -1 # 当前列非零的个数
-    num = nextelemt()
-    for column in range(m):
-        for index in range(row):
-            B[index].append(next(num))
-        row -= 2
-
+                
+    nextnum = nextelemt()
+    current = 1
+    for i in range(2*m-1):
+        for j in range(current):
+            B[i].append(next(nextnum))
+        B[i].extend([0]*(m-current))
+        if i < m-1:
+            current += 1
+        else:
+            current -= 1
     return B
 
+
+def func4_2(A):
+    # 实现方法2
+    m = len(A)
+    B = [[0]*m for _ in range(2*m-1)]
+    for i in range(m):
+        for j in range(m):
+            if i + j < m:
+                B[i+j][j] = A[i][j]
+            else:
+                B[i+j][m-i-1] = A[i][j]
+    return B
+
+
+def func5(w: str):
+    if len(w) <= 1:
+        return w.upper()
+    Capital = False
+    ans = ''
+    for ch in w:
+        if ch.isupper():
+            Capital = True
+            break
+    ans += w[0].upper()
+    ans += w[1:-1].lower()
+    if Capital:
+        ans += w[-1].lower()
+    else:
+        ans += w[-1].upper()
+    return ans
+    
+
+def func6(s:str):
+    """
+    英文数字 正文； 其他字符 分隔符
+    用一个空格替换分隔符
+    单词长度仅5个字符 大于部分除首尾字符换成*
+    """
+    import re
+    word_list = re.findall(r'\w+', s)
+    for index, word in enumerate(word_list):
+        if len(word) >5:
+            word_list[index] = word[0] + '*'*(len(word)-2) +word[-1]
+    return ' '.join(word_list)
+
+
+def func7(words:list, chars:str):
+    """
+    words n个单词
+    chars 字符串 m字母 大小写
+    chars 中字母拼words中的单词
+    chars 中每个字母用一次
+    放回掌握的单词数
+    """
+    from collections import Counter
+    ch_orgdict = Counter(chars)
+    count = 0
+    for word in words:
+        ch_tempdict = ch_orgdict.copy()
+        for ch in word:
+            if ch_tempdict.get(ch, 0):
+                ch_tempdict[ch] -= 1
+            else:
+                break
+        else:
+            count += 1
+    return count
+
+
+def func8(lst):
+    """
+    lst 若干元组的列表  元组含字符串和整数
+    字符串存了学号 9位  整数存了时间 1~3合法
+    除去时间或学号不合法的记录
+    计算每位同学总时间，降序排列，时间相同学号升序
+    元组形式返回排名第一的同学
+    """
+    stu_dict = {}
+    for record in lst:
+        number, time = record
+        if len(number) == 9 and number.isdigit() and 1<=time<=3:
+            stu_dict[number] = stu_dict.get(number, 0) + time
+    # 两次sort
+    # stu_list = sorted(stu_dict)
+    # stu_list.sort(key=lambda x:stu_dict[x], reverse=True)
+    # 一次sort
+    stu_list = sorted(stu_dict, key=lambda x: (-stu_dict[x], x))
+
+    if stu_list:
+        return (stu_list[0], stu_dict[stu_list[0]])
+    else:
+        return None
+
 if __name__ == "__main__":
-    print(func1(-1,2))
-    print(func2(0, 0, 11))
-    print(func3([1, 234, 5, 6, 7, 890]))
-    print(func4([[1,2,3],[4,5,6],[7,8,9]]))
+    print('1:', func1(-1,2))
+    print('2:', func2(0, 0, 11))
+    print('3:', func3([1, 234, 5, 6, 7, 890]))
+    print('4:', func4_2([[1,2,3],[4,5,6],[7,8,9]]))
+    print('5:', func5("w"))
+    print('6:', func6("hello!world, computer,,,class,52,5w"))
+    print('7:', func7(["cat", 'bt', 'hat', 'tree'], "atach"))
+    print('8:', func8([("192740506",3), ("192740101",2), ("192740101",2)]))
