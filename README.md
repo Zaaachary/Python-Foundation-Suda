@@ -27,6 +27,8 @@ Python语言基础; 苏州大学复试; Soochow University Python
 
 ## 04 历年复试真题
 文件夹04：历年复试上机真题的C和Python实现
+讲解视频：[皮一下很开心](https://www.bilibili.com/video/BV1JC4y1p7t9/)
+[皮一下很开心的苏大复试仓库](https://github.com/douzujun/Python-Foundation-Suda)
 
 ## 05 Leetcode
 文件夹05：力扣刷题。 （简单为主，中等用于提升）
