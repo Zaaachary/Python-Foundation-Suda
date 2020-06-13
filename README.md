@@ -11,9 +11,11 @@ Python语言基础; 苏州大学复试; Soochow University Python
 [学习笔记（下）](http://zrawberry.com/article/article-content/22/Python-Xue-Xi-Bi-Ji-Xia/)
 
 ## 02 苏大MOOC习题
-文件夹02：MOOC上的习题代码
+文件夹02：MOOC上的习题和考试代码
 
 苏大MOOC [Python程序设计](https://www.icourse163.org/learn/SUDA-1206947804)
+
+苏大MOOC 课件+单元测试 [下载](http://cloud.zrawberry.com/index.php/s/94LaJ6CTf8xK2kD)
 
 ## 03 苏大本科习题
 文件夹03：期中，期末试卷
