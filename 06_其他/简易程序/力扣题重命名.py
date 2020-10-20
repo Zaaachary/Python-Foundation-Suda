@@ -19,17 +19,20 @@ class FileRenamer:
         """
         length: 目标数字序号长度
         """
-        pattern = re.compile(r'^\d+')
+        pattern = re.compile(r'^\d+_')
         for filename in os.listdir():
-            if number := pattern.match(filename):   # 海象运算符
+            # if number := pattern.match(filename):   # 海象运算符
+            number = pattern.match(filename)
+            if number:   # 海象运算符
                 number = number.group()
             else:
                 continue
 
             characters = filename[len(number):]
-            num = int(number)
-            number = str(num).rjust(length, '0')
-            print(dst:=number+characters)
+            num = int(number[:-1])
+            number = str(num).rjust(length, '0')+'.'
+            dst = number + characters
+            print(dst)
 
             os.rename(src=filename, dst=dst)
         print("改名完成")
