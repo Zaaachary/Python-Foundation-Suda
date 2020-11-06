@@ -2,6 +2,13 @@
 给定一个 没有重复 数字的序列，返回其所有可能的全排列。
 
 """
+#
+# @lc app=leetcode.cn id=46 lang=python3
+#
+# [46] 全排列
+#
+
+# @lc code=start
 from typing import List
 
 
@@ -59,6 +66,7 @@ class Solution:
 
         backtrack()
         return res
+# @lc code=end
 
 
 if __name__ == "__main__":
