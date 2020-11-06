@@ -19,7 +19,8 @@ class FileRenamer:
         """
         length: 目标数字序号长度
         """
-        pattern = re.compile(r'^\d+_')
+        pattern = re.compile(r'^\d+')
+        # pattern = re.compile(r'^\d+_')
         for filename in os.listdir():
             # if number := pattern.match(filename):   # 海象运算符
             number = pattern.match(filename)
@@ -29,8 +30,10 @@ class FileRenamer:
                 continue
 
             characters = filename[len(number):]
-            num = int(number[:-1])
-            number = str(num).rjust(length, '0')+'.'
+            num = int(number)
+            # num = int(number[:-1])
+            number = str(num).rjust(length, '0')
+            # number = str(num).rjust(length, '0')+'.'
             dst = number + characters
             print(dst)
 
@@ -39,5 +42,6 @@ class FileRenamer:
 
 if __name__ == "__main__":
     F = FileRenamer()
+    # F.changedir('./06_其他')
     F.changedir('./05_leetcode')
     F.renamenumber(4)
