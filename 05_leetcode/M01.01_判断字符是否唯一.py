@@ -19,11 +19,11 @@ class Solution:
         # 40ms 位法
         mark = 0
         for char in astr:
-            move_bit = ord(char) - ord('a')
-            if (mark & (1 << move_bit)) != 0:
-                return False
+            move_bit = ord(char) - ord('a')     # 当前字母的偏移
+            if (mark & (1 << move_bit)) != 0:   # mark 和此字符串 与
+                return False                    # 不为零则表示有字幕出现两次
             else:
-                mark |= (1 << move_bit)
+                mark |= (1 << move_bit)         # 将当前字母添加到 mark
         return True
 
 
