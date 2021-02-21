@@ -17,7 +17,7 @@
 #         # sort()   11.33%
 #         bisect.bisect(self.num_list, num)
 
-#     def addNum(self, num: int) -> None:
+#     def addNum2(self, num: int) -> None:
 #         # binsearch insert  11.43%
 #         self.num_list.append(num)
 #         self.num_list.sort()
