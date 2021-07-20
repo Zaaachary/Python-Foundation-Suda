@@ -36,7 +36,7 @@ class FileRenamer:
             # number = str(num).rjust(length, '0')+'.'
             dst = num + characters
             print(dst)
-            # os.rename(src=filename, dst=dst)
+            os.rename(src=filename, dst=dst)
         print("改名完成")
 
 if __name__ == "__main__":
