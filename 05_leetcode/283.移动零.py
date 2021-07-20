@@ -39,6 +39,28 @@ class Solution_1:
         for index in range(last_not_zero, len(nums)):
             nums[index] = 0
 
+
+class Solution_old:
+    def moveZeroes(self, nums: list) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        if len(nums) <= 1:
+            # nums有0或1个元素 或 没有0元素 返回
+            return None
+
+        count_zeros, index = 0, 0
+        while index < len(nums):
+            # 数0的个数并删除中间出现的0
+            if nums[index] == 0:
+                del nums[index]
+                count_zeros += 1
+            else:
+                index += 1
+        
+        for _ in range(count_zeros):
+            nums.append(0)
+
 if __name__ == "__main__":
     S = Solution()
     l = [1,2,3,4,0]
