@@ -30,11 +30,11 @@ class FileRenamer:
                 continue
 
             characters = filename[len(number):]
-            num = int(number)
+            num = str(int(number))
             # num = int(number[:-1])
-            number = str(num).rjust(length, '0')
+            # number = str(num).rjust(length, '0')
             # number = str(num).rjust(length, '0')+'.'
-            dst = number + characters
+            dst = num + characters
             print(dst)
             os.rename(src=filename, dst=dst)
         print("改名完成")
