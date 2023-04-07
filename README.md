@@ -1,5 +1,5 @@
 # Python-Foundation
-Python语言基础; 苏州大学复试; Soochow University Python
+Python语言基础; suda 复试; Soochow University Python
 
 [TOC]
 
